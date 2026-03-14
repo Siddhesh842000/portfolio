@@ -1,0 +1,22 @@
+# Node modules
+node_modules/
+npm-debug.log
+
+# Mac hidden files
+.DS_Store
+
+# Windows hidden files
+Thumbs.db
+
+# Build outputs
+dist/
+build/
+.cache/
+
+# IDE config
+.vscode/
+.idea/
+
+# Environment variables
+.env
+.env.local
