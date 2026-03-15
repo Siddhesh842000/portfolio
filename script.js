@@ -1,3 +1,29 @@
+// Theme Toggle Logic
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
+const body = document.body;
+
+// Check for saved theme
+const savedTheme = localStorage.getItem('portfolio-theme');
+if (savedTheme === 'light') {
+    body.classList.replace('dark-theme', 'light-theme');
+    if (themeIcon) themeIcon.classList.replace('fa-sun', 'fa-moon');
+}
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        if (body.classList.contains('dark-theme')) {
+            body.classList.replace('dark-theme', 'light-theme');
+            themeIcon.classList.replace('fa-sun', 'fa-moon');
+            localStorage.setItem('portfolio-theme', 'light');
+        } else {
+            body.classList.replace('light-theme', 'dark-theme');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+            localStorage.setItem('portfolio-theme', 'dark');
+        }
+    });
+}
+
 // Initialize AOS Animations
 document.addEventListener('DOMContentLoaded', () => {
     AOS.init({
@@ -36,8 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const rolesList = [
         "Data Scientist",
         "Machine Learning Engineer",
-        "Python Developer",
-        "Tech Enthusiast"
+        "AI Engineer",
+        "Data Analyst"
     ];
 
     const typingDelay = 100;
@@ -96,7 +122,7 @@ if (isDesktop) {
     });
 
     // Hover effect on clickable elements
-    const clickables = document.querySelectorAll('a, button, .hover-effect, .hamburger');
+    const clickables = document.querySelectorAll('a, button, .hover-effect, .hamburger, .theme-toggle');
     
     clickables.forEach(link => {
         link.addEventListener('mouseenter', () => {
